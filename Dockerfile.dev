@@ -1,0 +1,26 @@
+FROM ruby:2.7.4
+ENV DOCKER=1
+# Install Chrome for e2e tests
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+RUN dpkg -i google-chrome*.deb || apt update && apt-get install -f -y
+# Install chromedriver (pin version because later versions fail inside WSL2 > Docker setups)
+RUN gem install webdrivers -v 4.4.1
+RUN gem install ffi
+RUN echo "require 'webdrivers'; load 'webdrivers/Rakefile'" > Rakefile
+RUN WD_INSTALL_DIR=/usr/local/bin rake webdrivers:chromedriver:update
+RUN rm -f Rakefile
+RUN gem uninstall webdrivers
+# Install Node.js
+RUN curl --silent --location https://deb.nodesource.com/setup_14.x | bash -
+RUN apt-get install --yes nodejs
+RUN apt-get install --yes libsodium23
+RUN apt-get install --yes postgresql-client
+RUN apt-get install --yes build-essential
+RUN apt-get install --yes vim-tiny
+RUN npm install -g yarn
+# Install gruff graphing dependencies
+# RUN apt-get install --yes ghostscript
+# RUN useradd -ms /bin/bash docker-user
+# USER docker-user
+# WORKDIR /home/docker-user
+WORKDIR /app
