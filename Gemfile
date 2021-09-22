@@ -25,6 +25,9 @@ gem "httparty", "~> 0.19.0"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
+gem "geokit-rails", "~> 2.3"
+gem "jsonapi-resources", "~> 0.10.5"
+gem "sidekiq", "~> 6.2"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -41,4 +44,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
-gem "geokit-rails", "~> 2.3"
+
+gem "pry-rails", "~> 0.3.9"

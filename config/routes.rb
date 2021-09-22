@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  get 'countries/index'
   namespace :api do
     namespace :v1 do
-      resources :countries
+      namespace :country do
+        resources :codes, controller: "codes"
+      end
     end
   end
+
+  #jsonapi_resources :countries
 end
