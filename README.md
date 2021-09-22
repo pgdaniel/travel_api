@@ -1,29 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 ## Steps
 
-Read in countries from external API 
+1) Read in countries from external API via the seeds file
+2) create and populate the Country data model via the seeds file
+3) create the first endpoint to return name and capital
 
