@@ -1,7 +1,6 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+(1..6).each do |p|
+  response = HTTParty.get("https://api.worldbank.org/v2/country?page=#{p}&format=json")
+  JSON.parse(response.body)[1].each do |element|
+    Country.find_or_create_by(iso_3_code: element['id'], longitude: element['longitude'], latitude: element['latitude'])
+  end
+end
