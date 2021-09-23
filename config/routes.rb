@@ -4,7 +4,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       namespace :country do
         resources :codes, only: :show
-        resources :capitals
+        resources :capitals, only: :index
+        resources :trips, only: :create
       end
     end
   end
