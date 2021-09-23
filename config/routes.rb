@@ -3,10 +3,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       namespace :country do
-        resources :codes, controller: "codes"
+        resources :codes, only: :show
+        resources :capitals
       end
     end
   end
-
-  #jsonapi_resources :countries
 end
