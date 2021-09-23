@@ -6,6 +6,4 @@ class Country < ApplicationRecord
     Country.where('latitude BETWEEN ? AND ?', lat_long_params[:min_lat], lat_long_params[:max_lat])
           .where('longitude BETWEEN ? AND ?', lat_long_params[:min_long], lat_long_params[:max_long])
   end
-
-  scope :best_route, lambda { take(5) }
 end
