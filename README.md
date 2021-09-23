@@ -20,6 +20,15 @@ I included a docker-compose file which you can run if you don't have a ruby envi
 
 ## Docker install
 
+* Add a .env file with the following for Docker
+
+```
+POSTGRES_USER=rails
+POSTGRES_PASSWORD=postgres
+
+RAILS_ENV=development
+```
+
 ### Install via Docker Desktop (the first 2 steps might take a while)
 
 * From a shell run the following:
