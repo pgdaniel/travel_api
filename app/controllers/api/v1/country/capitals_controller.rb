@@ -1,5 +1,5 @@
 class Api::V1::Country::CapitalsController < ApplicationController
-  def create
+  def index
     render json: countries.pluck(:capital)
   end
 

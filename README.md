@@ -20,15 +20,15 @@ I included a docker-compose file which you can run if you don't have a ruby envi
 
 ## Docker install
 
-### Install via Docker Desktop
+### Install via Docker Desktop (the first 2 steps might take a while)
 
 * From a shell run the following:
 
 `docker-compose build`
 
-`docker-compose run bundle`
+`docker-compose run web bundle`
 
-`docker-compose run rake db:setup`
+`docker-compose run web rake db:setup`
 
 `docker-compose up`
 
@@ -38,6 +38,10 @@ there should now be a server running on port 3000 of localhost
 `bundle install`
 `rake db:setup`
 `rails s`
+
+there should now be a server running on port 3000 of localhost
+
+### Endpoints for exercise
 
 * Endpoint 1:
 
